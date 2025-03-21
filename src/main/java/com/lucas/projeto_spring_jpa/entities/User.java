@@ -2,6 +2,8 @@ package com.lucas.projeto_spring_jpa.entities;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,6 +27,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     List<Order> orders = new ArrayList<>();
 
@@ -108,8 +111,4 @@ public class User implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password=" + password + "]";
-    }
 }
