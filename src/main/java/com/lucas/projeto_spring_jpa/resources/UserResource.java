@@ -9,8 +9,6 @@ import com.lucas.projeto_spring_jpa.entities.User;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.lucas.projeto_spring_jpa.services.UserService;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 
 @RestController
