@@ -26,6 +26,12 @@ Este projeto é uma aplicação Spring Boot que fornece uma API RESTful para um 
 - Maven
 - Banco de dados H2 (presumido, modificar se estiver usando um banco de dados diferente)
 
+<div>
+   <img align="center" width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+   <img align="center" width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" />
+   <img align="center" width="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" />
+</div>
+
 ## Estrutura do Projeto
 
 ```
