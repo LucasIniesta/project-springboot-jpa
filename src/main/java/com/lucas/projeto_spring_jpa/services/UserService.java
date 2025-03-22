@@ -1,9 +1,12 @@
 package com.lucas.projeto_spring_jpa.services;
 
 import com.lucas.projeto_spring_jpa.repositories.UserRepository;
+import com.lucas.projeto_spring_jpa.services.exceptions.DabaseException;
 import com.lucas.projeto_spring_jpa.services.exceptions.ResourceNotFindException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+
 import com.lucas.projeto_spring_jpa.entities.User;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -27,7 +30,16 @@ public class UserService {
     }
 
     public void deleteById(Long id) {
-        repository.deleteById(id);
+        
+        if(!repository.existsById(id)){
+            throw new ResourceNotFindException("User not found with id: " + id);
+        }
+        try {
+            repository.deleteById(id);
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new DabaseException(e.getMessage());
+        }
     }
 
     public User update(Long id, User user) {
