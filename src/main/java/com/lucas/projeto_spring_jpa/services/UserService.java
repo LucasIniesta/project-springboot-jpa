@@ -1,6 +1,8 @@
 package com.lucas.projeto_spring_jpa.services;
 
 import com.lucas.projeto_spring_jpa.repositories.UserRepository;
+import com.lucas.projeto_spring_jpa.services.exceptions.ResourceNotFindException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.lucas.projeto_spring_jpa.entities.User;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFindException(id));
     }
 
     public User insert(User user) {
