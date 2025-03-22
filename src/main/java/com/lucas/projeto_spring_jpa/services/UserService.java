@@ -43,6 +43,10 @@ public class UserService {
     }
 
     public User update(Long id, User user) {
+        
+        if(!repository.existsById(id)){
+            throw new ResourceNotFindException("User not found with id: " + id);
+        }
         User entity = repository.getReferenceById(id);
         updateData(entity, user);
         return repository.save(entity);
